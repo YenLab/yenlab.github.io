@@ -1,0 +1,49 @@
+---
+import Layout from "../../components/Layout.astro";
+import { pages, sectionPaths, type Locale, type PageKey } from "../../content/site";
+
+export function getStaticPaths() {
+  return sectionPaths.flatMap((section) => [
+    { params: { lang: "en", section } },
+    { params: { lang: "zh", section } }
+  ]);
+}
+
+const lang = Astro.params.lang as Locale;
+const section = Astro.params.section as Exclude<PageKey, "home">;
+const page = pages[section][lang];
+---
+
+<Layout lang={lang} pageKey={section} title={page.title} description={page.intro}>
+  <section class="page-hero">
+    <p class="eyebrow">{page.title}</p>
+    <h1>{page.title}</h1>
+    {page.intro && <p>{page.intro}</p>}
+  </section>
+
+  <section class="section-grid">
+    {
+      page.sections.map((item) => (
+        <article class="info-panel">
+          <h2>{item.heading}</h2>
+          {item.body && <p>{item.body}</p>}
+          {item.list && section === "publications" && (
+            <ol class="publication-list">
+              {item.list.map((entry) => <li>{entry}</li>)}
+            </ol>
+          )}
+          {item.list && section !== "publications" && (
+            <ul class="roster-list">
+              {item.list.map((entry) => <li>{entry}</li>)}
+            </ul>
+          )}
+          {item.tags && (
+            <div class="tag-row">
+              {item.tags.map((tag) => <span>{tag}</span>)}
+            </div>
+          )}
+        </article>
+      ))
+    }
+  </section>
+</Layout>

@@ -1,0 +1,52 @@
+---
+import Layout from "../../components/Layout.astro";
+import { siteCopy, type Locale } from "../../content/site";
+import { withBase } from "../../utils/paths";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "zh" } }];
+}
+
+const lang = Astro.params.lang as Locale;
+const copy = siteCopy[lang];
+---
+
+<Layout lang={lang} pageKey="home" description={copy.home.mission}>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">{copy.home.eyebrow}</p>
+      <h1>{copy.labName}</h1>
+      <p class="hero-subtitle">{copy.subtitle}</p>
+      <p class="hero-mission">{copy.home.mission}</p>
+      <p>{copy.home.lead}</p>
+      <div class="button-row">
+        {copy.home.ctas.map((cta) => <a class="button" href={withBase(cta.href)}>{cta.label}</a>)}
+      </div>
+    </div>
+    <aside class="graphic-placeholder" aria-label={copy.home.graphicPlaceholder}>
+      <span>{copy.home.graphicPlaceholder}</span>
+    </aside>
+  </section>
+
+  <section class="metrics" aria-label="Lab highlights">
+    {
+      copy.home.highlights.map((item) => (
+        <article>
+          <strong>{item.value}</strong>
+          <span>{item.label}</span>
+          <p>{item.detail}</p>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="content-band">
+    <div>
+      <p class="section-kicker">{copy.affiliation}</p>
+      <h2>{copy.home.researchPreviewTitle}</h2>
+    </div>
+    <div class="preview-list">
+      {copy.home.researchPreview.map((item) => <p>{item}</p>)}
+    </div>
+  </section>
+</Layout>

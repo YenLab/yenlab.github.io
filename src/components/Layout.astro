@@ -1,0 +1,79 @@
+---
+import { locales, navigation, officialProfile, siteCopy, type Locale, type PageKey } from "../content/site";
+import { withBase } from "../utils/paths";
+
+interface Props {
+  lang: Locale;
+  pageKey: PageKey;
+  title?: string;
+  description?: string;
+}
+
+const { lang, pageKey, title, description } = Astro.props;
+const copy = siteCopy[lang];
+const pageTitle = title ? `${title} | ${copy.labName}` : copy.title;
+const oppositeLang = lang === "en" ? "zh" : "en";
+const languagePath = pageKey === "home" ? `/${oppositeLang}/` : `/${oppositeLang}/${pageKey}/`;
+---
+
+<!doctype html>
+<html lang={locales[lang].htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description ?? copy.subtitle} />
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="stylesheet" href={withBase("/styles/global.css")} />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href={withBase(`/${lang}/`)} aria-label={copy.labName}>
+          <span class="brand-mark">Y</span>
+          <span>
+            <strong>{copy.labName}</strong>
+            <small>{copy.subtitle}</small>
+          </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          {
+            navigation[lang].map((item) => (
+              <a href={withBase(item.href)} class:list={{ active: item.key === pageKey }}>
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <div class="header-actions">
+          <a class="language-switch" href={withBase(languagePath)}>{copy.languageLabel}</a>
+          <a class="official-link" href={officialProfile} target="_blank" rel="noreferrer">{copy.officialLabel}</a>
+        </div>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <strong>{copy.labName}</strong>
+          <p>{copy.affiliation}</p>
+          <p>{copy.location}</p>
+        </div>
+        <div>
+          <strong>{copy.contactLabel}</strong>
+          <p><a href={`mailto:${copy.email}`}>{copy.email}</a></p>
+          <p><a href={`mailto:${copy.altEmail}`}>{copy.altEmail}</a></p>
+        </div>
+        <div>
+          <strong>{copy.officialLabel}</strong>
+          <p><a href={officialProfile} target="_blank" rel="noreferrer">chinablood.com.cn</a></p>
+          <p>{copy.footerNote}</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
