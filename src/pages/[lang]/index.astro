@@ -18,18 +18,18 @@ const copy = siteCopy[lang];
       <h1>{copy.labName}</h1>
       <p class="hero-subtitle">{copy.subtitle}</p>
       <p class="hero-mission">{copy.home.mission}</p>
+      <aside class="hero-graphic" aria-label={copy.home.graphicAlt}>
+        <img
+          src={withBase("/lab-image/version2.png")}
+          alt={copy.home.graphicAlt}
+          class="hero-graphic-img"
+        />
+      </aside>
       <p>{copy.home.lead}</p>
       <div class="button-row">
         {copy.home.ctas.map((cta) => <a class="button" href={withBase(cta.href)}>{cta.label}</a>)}
       </div>
     </div>
-    <aside class="hero-graphic" aria-label={copy.home.graphicAlt}>
-      <img
-        src={withBase("/lab-image/version2.png")}
-        alt={copy.home.graphicAlt}
-        class="hero-graphic-img"
-      />
-    </aside>
   </section>
 
   <section class="content-band">

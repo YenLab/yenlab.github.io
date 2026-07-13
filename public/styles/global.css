@@ -303,6 +303,8 @@ h2 {
   margin: 0;
   padding: 0 0 14px;
   border-bottom: 1px solid var(--line);
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
+  line-height: 1.5;
 }
 
 .page-hero {
