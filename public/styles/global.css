@@ -1,14 +1,14 @@
 :root {
-  --page-bg: #f3f2ef;
+  --page-bg: #fbfaf8;
   --paper: #ffffff;
-  --ink: #222222;
-  --muted: #666666;
-  --line: #d6d2c9;
-  --accent: #8b1e16;
-  --accent-dark: #64140f;
-  --accent-soft: #f4ebe8;
-  --header: #4d4d4d;
-  --max-width: 1140px;
+  --ink: #1e1d1b;
+  --muted: #66615c;
+  --line: #ddd7cf;
+  --accent: #9f1d16;
+  --accent-dark: #6f120e;
+  --accent-soft: #f7ece9;
+  --header: #2d2a27;
+  --max-width: 1180px;
   color-scheme: light;
   font-family:
     Roboto, Arial, Helvetica, "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei",
@@ -32,28 +32,27 @@ a {
 }
 
 .page-shell {
-  width: min(var(--max-width), calc(100vw - 28px));
-  margin: 22px auto;
+  width: 100%;
+  min-height: 100vh;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 6px;
   background: var(--paper);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .site-header {
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) auto;
-  gap: 12px 18px;
+  grid-template-columns: minmax(260px, 1fr) auto;
+  gap: 14px 28px;
   align-items: center;
-  padding: 18px 22px;
+  width: min(var(--max-width), calc(100vw - 40px));
+  margin: 0 auto;
+  padding: 22px 0 16px;
   border-bottom: 1px solid var(--line);
   background: #ffffff;
 }
 
 .brand {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
   min-width: 0;
   color: var(--ink);
@@ -61,17 +60,11 @@ a {
 }
 
 .brand-mark {
-  display: grid;
-  width: 54px;
-  height: 42px;
+  display: block;
+  width: 58px;
+  height: 58px;
   flex: 0 0 auto;
-  place-items: center;
-  border-radius: 2px;
-  background: var(--accent);
-  color: #fff;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+  object-fit: contain;
 }
 
 .brand strong,
@@ -81,7 +74,7 @@ a {
 
 .brand strong {
   font-family: "Roboto Slab", Georgia, "Times New Roman", serif;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 500;
 }
 
@@ -106,9 +99,8 @@ a {
 
 .main-nav {
   grid-column: 1 / -1;
-  gap: 8px 20px;
-  padding-top: 10px;
-  border-top: 1px solid var(--line);
+  gap: 8px 22px;
+  padding-top: 2px;
 }
 
 .header-actions {
@@ -118,7 +110,7 @@ a {
 .main-nav a,
 .language-switch,
 .official-link {
-  padding: 6px 8px;
+  padding: 4px 0;
   color: #333;
   font-size: 0.95rem;
   text-decoration: none;
@@ -133,8 +125,9 @@ a {
 }
 
 .official-link {
+  padding: 6px 10px;
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: 2px;
   color: var(--accent);
 }
 
@@ -144,26 +137,25 @@ a {
 .content-band,
 .section-grid,
 .site-footer {
-  width: min(100% - 44px, 1040px);
+  width: min(var(--max-width), calc(100vw - 40px));
   margin-inline: auto;
 }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.44fr);
-  gap: 32px;
-  align-items: stretch;
-  min-height: 360px;
-  margin-top: 24px;
-  padding: 0;
-  background:
-    linear-gradient(rgba(38, 38, 38, 0.72), rgba(38, 38, 38, 0.72)),
-    linear-gradient(135deg, #5f5f5f 0%, #7e2d26 46%, #2d2d2d 100%);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  padding: 46px 0 40px;
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
 }
 
 .hero-copy {
-  padding: 44px;
-  color: #fff;
+  max-width: none;
+  min-width: 0;
+  padding: 0;
+  color: var(--ink);
 }
 
 .eyebrow,
@@ -177,7 +169,7 @@ a {
 }
 
 .hero .eyebrow {
-  color: #f1d7d3;
+  color: var(--accent);
 }
 
 h1,
@@ -201,9 +193,9 @@ h2 {
 }
 
 .hero-subtitle {
-  margin: 10px 0 18px;
-  color: #ffffff;
-  font-size: 1.18rem;
+  margin: 12px 0 18px;
+  color: var(--accent-dark);
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
@@ -214,7 +206,8 @@ h2 {
 }
 
 .hero-copy > p:not(.eyebrow):not(.hero-subtitle):not(.hero-mission) {
-  color: #f0eeee;
+  max-width: 100%;
+  color: var(--muted);
   font-size: 1rem;
 }
 
@@ -223,55 +216,51 @@ h2 {
   align-items: center;
   min-height: 40px;
   padding: 8px 14px;
-  border: 1px solid #ffffff;
-  border-radius: 3px;
-  background: #ffffff;
-  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  background: var(--accent);
+  color: #ffffff;
   font-weight: 700;
   text-decoration: none;
 }
 
 .button + .button {
-  background: transparent;
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--accent);
 }
 
-.graphic-placeholder {
+.hero-graphic {
   display: grid;
-  min-height: 100%;
-  padding: 24px;
-  place-items: center;
-  border-left: 1px solid rgba(255, 255, 255, 0.35);
-  color: rgba(255, 255, 255, 0.82);
-  text-align: center;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--page-bg);
 }
 
-.graphic-placeholder span {
+.hero-graphic-img {
   display: block;
   width: 100%;
-  max-width: 280px;
-  padding: 46px 20px;
-  border: 2px dashed rgba(255, 255, 255, 0.65);
-  border-radius: 4px;
-  font-size: 0.96rem;
+  height: auto;
+  object-fit: contain;
 }
 
 .metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  padding: 32px 0 36px;
+  gap: 20px;
+  padding: 34px 0 38px;
 }
 
 .metrics article,
 .info-panel {
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: 2px;
   background: #fff;
 }
 
 .metrics article {
-  padding: 20px;
+  padding: 22px;
+  border-top: 4px solid var(--accent);
 }
 
 .metrics strong {
@@ -300,8 +289,8 @@ h2 {
 .content-band {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
-  gap: 34px;
-  padding: 34px 0 48px;
+  gap: 40px;
+  padding: 38px 0 58px;
   border-top: 1px solid var(--line);
 }
 
@@ -322,11 +311,12 @@ h2 {
 }
 
 .page-hero h1 {
+  max-width: none;
   font-size: clamp(2.4rem, 5vw, 4rem);
 }
 
 .page-hero p {
-  max-width: 900px;
+  max-width: none;
   color: var(--muted);
 }
 
@@ -378,10 +368,18 @@ h2 {
   display: grid;
   grid-template-columns: 1.1fr 0.8fr 1fr;
   gap: 30px;
-  padding: 28px 0 34px;
+  padding: 30px 0 38px;
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+.footer-mark {
+  display: block;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 12px;
+  object-fit: contain;
 }
 
 .site-footer strong {
@@ -411,23 +409,16 @@ h2 {
     grid-template-columns: 1fr;
   }
 
-  .graphic-placeholder {
-    border-top: 1px solid rgba(255, 255, 255, 0.35);
-    border-left: 0;
+  .hero-graphic {
+    align-self: auto;
   }
+
 }
 
 @media (max-width: 720px) {
-  .page-shell {
-    width: 100%;
-    margin: 0;
-    border-right: 0;
-    border-left: 0;
-    border-radius: 0;
-  }
-
   .site-header {
-    padding-inline: 18px;
+    width: min(100% - 28px, var(--max-width));
+    grid-template-columns: 1fr;
   }
 
   .hero,

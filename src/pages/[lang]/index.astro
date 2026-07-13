@@ -23,26 +23,17 @@ const copy = siteCopy[lang];
         {copy.home.ctas.map((cta) => <a class="button" href={withBase(cta.href)}>{cta.label}</a>)}
       </div>
     </div>
-    <aside class="graphic-placeholder" aria-label={copy.home.graphicPlaceholder}>
-      <span>{copy.home.graphicPlaceholder}</span>
+    <aside class="hero-graphic" aria-label={copy.home.graphicAlt}>
+      <img
+        src={withBase("/lab-image/version2.png")}
+        alt={copy.home.graphicAlt}
+        class="hero-graphic-img"
+      />
     </aside>
-  </section>
-
-  <section class="metrics" aria-label="Lab highlights">
-    {
-      copy.home.highlights.map((item) => (
-        <article>
-          <strong>{item.value}</strong>
-          <span>{item.label}</span>
-          <p>{item.detail}</p>
-        </article>
-      ))
-    }
   </section>
 
   <section class="content-band">
     <div>
-      <p class="section-kicker">{copy.affiliation}</p>
       <h2>{copy.home.researchPreviewTitle}</h2>
     </div>
     <div class="preview-list">

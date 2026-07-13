@@ -59,6 +59,7 @@ export const siteCopy = {
       lead:
         "The laboratory combines genomics, in-house computational methods, in vitro differentiation systems, and biochemical reconstitution to understand how cells cross regulatory tipping points.",
       graphicPlaceholder: "Graphic summary reserved for a future lab image.",
+      graphicAlt: "Yen Lab research interest overview — chromatin, transcription regulation, and hematopoietic cell fate",
       ctas: [
         { label: "Explore research", href: "/en/research/" },
         { label: "View publications", href: "/en/publications/" }
@@ -108,6 +109,7 @@ export const siteCopy = {
       lead:
         "课题组结合基因组学、自主开发的生物信息学方法、体外分化系统和生化重构，解析细胞跨越调控临界点的分子机制。",
       graphicPlaceholder: "此处预留给未来上传的课题组图形摘要。",
+      graphicAlt: "颜光玗课题组研究方向概览——染色质、转录调控与造血细胞命运",
       ctas: [
         { label: "查看研究方向", href: "/zh/research/" },
         { label: "查看论文成果", href: "/zh/publications/" }
@@ -158,6 +160,7 @@ export const siteCopy = {
       mission: string;
       lead: string;
       graphicPlaceholder: string;
+      graphicAlt: string;
       ctas: Array<{ label: string; href: string }>;
       highlights: Array<{ value: string; label: string; detail: string }>;
       researchPreviewTitle: string;
@@ -333,32 +336,32 @@ export const pages: Record<Exclude<PageKey, "home">, Record<Locale, PageContent>
         {
           heading: "Current members",
           list: [
-            "Ting Lu / 卢婷 - Research Associate; Molecular biologist and bioinformatician; Email: luting062@gmail.com",
-            "Shaokang Mo / 莫少康 - PhD student; Bioinformatician; Email: soap79022@outlook.com; moshaokang@ihcams.ac.cn",
-            "Zhe Zhao / 赵哲 - PhD student; Stem cell and regenerative medicine; Email: zhaozhe1243988167@163.com; zhaozhe@ihcams.ac.cn",
             "Yanan Fu / 傅亚楠 - Master student; Stem cell and regenerative medicine; Email: fuyanan@ihcams.ac.cn",
-            "胡灿 - Master student; Molecular biologist",
+            "Can Hu / 胡灿 - Master student; Molecular biologist",
+            "Shaokang Mo / 莫少康 - PhD student; Developmental biology; Bioinformatician; Email: soap79022@outlook.com; moshaokang@ihcams.ac.cn",
+            "Zhe Zhao / 赵哲 - PhD student; Stem cell and regenerative medicine; Email: zhaozhe1243988167@163.com; zhaozhe@ihcams.ac.cn",
+            "Ting Lu / 卢婷 - Research Associate; Developmental biology; Molecular biologist and bioinformatician; Email: luting062@gmail.com",
             "Bin Qi / 祁彬 - Accounting; Email: 1989628666@qq.com"
           ]
         },
         {
           heading: "Alumni still collaborating",
           list: [
-            "Junfeng Huang / 黄俊峰 - Research Associate; Bioinformatician; Email: jfhuang.dg@gmail.com",
-            "Xiao Fang / 方潇 - Research Associate; Cell biologist; Email: fancyxiao0330@yeah.net; fangxiao@scut.edu.cn"
+            "Junfeng Huang / 黄俊峰 - Research Associate; Bioinformatics; Bioinformatician; Email: jfhuang.dg@gmail.com"
           ]
         },
         {
           heading: "Alumni",
           list: [
-            "Shan Liu / 刘珊 - PhD student; Molecular biologist; Email: 729988168@qq.com; sango63520@163.com",
-            "Liu Yang / 杨柳 - PhD student; Bioinformatician; Email: 17694944948@163.com",
-            "Qiwei Li / 李奇威 - PhD student; Molecular biologist; Email: qi_will@foxmail.com",
-            "Jianyu Yang / 杨剑宇 - Master student; Bioinformatician; Email: yztxwd@gmail.com; jmy5455@psu.edu",
             "Yifan Ye / 叶一帆 - Master student; Stem cell and regenerative medicine; Email: yyfan_0228@163.com; yeyifan@ihcams.ac.cn",
-            "Kengyuan Qu / 瞿铿沅 - Master student; Cell biologist; Email: 465336766@qq.com",
-            "Houyu Zhang / 张厚煜 - Master student; Bioinformatician; Email: hughiez047@gmail.com",
-            "吴鹏飞 - Master student; Cell biologist"
+            "吴鹏飞 - Master student; Biochemistry; Cell biologist",
+            "Houyu Zhang / 张厚煜 - Master student; Developmental biology; Bioinformatician; Email: hughiez047@gmail.com",
+            "Jianyu Yang / 杨剑宇 - Master student; Developmental biology; Bioinformatician; Email: yztxwd@gmail.com; jmy5455@psu.edu",
+            "Kengyuan Qu / 瞿铿沅 - Master student; Human anatomy, histology and embryology; Cell biologist; Email: 465336766@qq.com",
+            "Shan Liu / 刘珊 - PhD student; Developmental biology; Molecular biologist; Email: 729988168@qq.com; sango63520@163.com",
+            "Qiwei Li / 李奇威 - PhD student; Developmental biology; Molecular biologist; Email: qi_will@foxmail.com",
+            "Liu Yang / 杨柳 - PhD student; Developmental biology; Bioinformatician; Email: 17694944948@163.com",
+            "Xiao Fang / 方潇 - Research Associate; Developmental biology; Cell biologist; Email: fancyxiao0330@yeah.net; fangxiao@scut.edu.cn"
           ]
         }
       ]
@@ -376,32 +379,32 @@ export const pages: Record<Exclude<PageKey, "home">, Record<Locale, PageContent>
         {
           heading: "现有成员",
           list: [
-            "卢婷 / Ting Lu - 科研人员；分子生物学与生物信息学；邮箱：luting062@gmail.com",
-            "莫少康 / Shaokang Mo - 博士研究生；生物信息学；邮箱：soap79022@outlook.com；moshaokang@ihcams.ac.cn",
-            "赵哲 / Zhe Zhao - 博士研究生；干细胞与再生医学；邮箱：zhaozhe1243988167@163.com；zhaozhe@ihcams.ac.cn",
             "傅亚楠 / Yanan Fu - 硕士研究生；干细胞与再生医学；邮箱：fuyanan@ihcams.ac.cn",
             "胡灿 - 硕士研究生；分子生物学",
+            "莫少康 / Shaokang Mo - 博士研究生；发育生物学；生物信息学；邮箱：soap79022@outlook.com；moshaokang@ihcams.ac.cn",
+            "赵哲 / Zhe Zhao - 博士研究生；干细胞与再生医学；邮箱：zhaozhe1243988167@163.com；zhaozhe@ihcams.ac.cn",
+            "卢婷 / Ting Lu - 科研人员；发育生物学；分子生物学与生物信息学；邮箱：luting062@gmail.com",
             "祁彬 / Bin Qi - 会计；邮箱：1989628666@qq.com"
           ]
         },
         {
           heading: "仍在合作的毕业成员",
           list: [
-            "黄俊峰 / Junfeng Huang - 科研人员；生物信息学；邮箱：jfhuang.dg@gmail.com",
-            "方潇 / Xiao Fang - 科研人员；细胞生物学；邮箱：fancyxiao0330@yeah.net；fangxiao@scut.edu.cn"
+            "黄俊峰 / Junfeng Huang - 科研人员；生物信息学；邮箱：jfhuang.dg@gmail.com"
           ]
         },
         {
           heading: "毕业成员",
           list: [
-            "刘珊 / Shan Liu - 博士研究生；分子生物学；邮箱：729988168@qq.com；sango63520@163.com",
-            "杨柳 / Liu Yang - 博士研究生；生物信息学；邮箱：17694944948@163.com",
-            "李奇威 / Qiwei Li - 博士研究生；分子生物学；邮箱：qi_will@foxmail.com",
-            "杨剑宇 / Jianyu Yang - 硕士研究生；生物信息学；邮箱：yztxwd@gmail.com；jmy5455@psu.edu",
             "叶一帆 / Yifan Ye - 硕士研究生；干细胞与再生医学；邮箱：yyfan_0228@163.com；yeyifan@ihcams.ac.cn",
-            "瞿铿沅 / Kengyuan Qu - 硕士研究生；细胞生物学；邮箱：465336766@qq.com",
-            "张厚煜 / Houyu Zhang - 硕士研究生；生物信息学；邮箱：hughiez047@gmail.com",
-            "吴鹏飞 - 硕士研究生；细胞生物学"
+            "吴鹏飞 - 硕士研究生；生物化学；细胞生物学",
+            "张厚煜 / Houyu Zhang - 硕士研究生；发育生物学；生物信息学；邮箱：hughiez047@gmail.com",
+            "杨剑宇 / Jianyu Yang - 硕士研究生；发育生物学；生物信息学；邮箱：yztxwd@gmail.com；jmy5455@psu.edu",
+            "瞿铿沅 / Kengyuan Qu - 硕士研究生；人体解剖与组织胚胎学；细胞生物学；邮箱：465336766@qq.com",
+            "刘珊 / Shan Liu - 博士研究生；发育生物学；分子生物学；邮箱：729988168@qq.com；sango63520@163.com",
+            "李奇威 / Qiwei Li - 博士研究生；发育生物学；分子生物学；邮箱：qi_will@foxmail.com",
+            "杨柳 / Liu Yang - 博士研究生；发育生物学；生物信息学；邮箱：17694944948@163.com",
+            "方潇 / Xiao Fang - 科研人员；发育生物学；细胞生物学；邮箱：fancyxiao0330@yeah.net；fangxiao@scut.edu.cn"
           ]
         }
       ]

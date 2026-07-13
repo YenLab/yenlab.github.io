@@ -30,7 +30,7 @@ const languagePath = pageKey === "home" ? `/${oppositeLang}/` : `/${oppositeLang
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href={withBase(`/${lang}/`)} aria-label={copy.labName}>
-          <span class="brand-mark">Y</span>
+          <img class="brand-mark" src={withBase("/lab-logo.png")} alt="" />
           <span>
             <strong>{copy.labName}</strong>
             <small>{copy.subtitle}</small>
@@ -59,6 +59,7 @@ const languagePath = pageKey === "home" ? `/${oppositeLang}/` : `/${oppositeLang
 
       <footer class="site-footer">
         <div>
+          <img class="footer-mark" src={withBase("/lab-logo.png")} alt="" />
           <strong>{copy.labName}</strong>
           <p>{copy.affiliation}</p>
           <p>{copy.location}</p>
