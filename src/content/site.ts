@@ -339,7 +339,7 @@ export const pages: Record<Exclude<PageKey, "home">, Record<Locale, PageContent>
             "Ting Lu / 卢婷 - Research Associate; Developmental biology; Molecular biologist and bioinformatician; Email: luting@ihcams.ac.cn; luting062@gmail.com",
             "Shaokang Mo / 莫少康 - PhD student; Developmental biology; Bioinformatician; Email: soap79022@outlook.com; moshaokang@ihcams.ac.cn",
             "Zhe Zhao / 赵哲 - PhD student; Stem cell and regenerative medicine; Email: zhaozhe1243988167@163.com; zhaozhe@ihcams.ac.cn",
-            "Yanan Fu / 傅亚楠 - Master student; Stem cell and regenerative medicine; Email: fuyanan@ihcams.ac.cn",
+            "Yanan Fu / 傅雅楠 - Master student; Stem cell and regenerative medicine; Email: fuyanan@ihcams.ac.cn",
             "Can Hu / 胡灿 - Master student; Molecular biologist",
             "Bin Qi / 祁彬 - Accountant; Email: 1989628666@qq.com"
           ]
@@ -382,7 +382,7 @@ export const pages: Record<Exclude<PageKey, "home">, Record<Locale, PageContent>
             "卢婷 / Ting Lu - 助理研究员；发育生物学；分子生物学与生物信息学；邮箱：luting@ihcams.ac.cn；luting062@gmail.com",
             "莫少康 / Shaokang Mo - 博士研究生；发育生物学；生物信息学；邮箱：soap79022@outlook.com；moshaokang@ihcams.ac.cn",
             "赵哲 / Zhe Zhao - 博士研究生；干细胞与再生医学；邮箱：zhaozhe1243988167@163.com；zhaozhe@ihcams.ac.cn",
-            "傅亚楠 / Yanan Fu - 硕士研究生；干细胞与再生医学；邮箱：fuyanan@ihcams.ac.cn",
+            "傅雅楠 / Yanan Fu - 硕士研究生；干细胞与再生医学；邮箱：fuyanan@ihcams.ac.cn",
             "胡灿 - 硕士研究生；分子生物学",
             "祁彬 / Bin Qi - 会计；邮箱：1989628666@qq.com"
           ]
