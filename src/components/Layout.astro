@@ -1,5 +1,6 @@
 ---
 import { locales, navigation, officialProfile, siteCopy, type Locale, type PageKey } from "../content/site";
+import "../styles/global.css";
 import { withBase } from "../utils/paths";
 
 interface Props {
@@ -24,7 +25,6 @@ const languagePath = pageKey === "home" ? `/${oppositeLang}/` : `/${oppositeLang
     <meta name="description" content={description ?? copy.subtitle} />
     <title>{pageTitle}</title>
     <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
-    <link rel="stylesheet" href={withBase("/styles/global.css")} />
   </head>
   <body>
     <div class="page-shell">
