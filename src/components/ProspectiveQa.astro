@@ -1,0 +1,135 @@
+---
+import { prospectiveQa } from "../content/prospectiveQa.mjs";
+import type { Locale } from "../content/site";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const copy = {
+  zh: {
+    title: "意向学生问答",
+    suggestions: "常见问题",
+    label: "你的问题",
+    placeholder: "例如：没有实验经验也可以加入吗？",
+    button: "查找答案",
+    answer: "回答",
+    source: "资料来源"
+  },
+  en: {
+    title: "Prospective Student Q&A",
+    suggestions: "Suggested questions",
+    label: "Your question",
+    placeholder: "For example: Can I join without lab experience?",
+    button: "Find an answer",
+    answer: "Answer",
+    source: "Source"
+  }
+}[lang];
+---
+
+<section class="qa-section" data-qa-root>
+  <div class="qa-heading">
+    <h2>{copy.title}</h2>
+  </div>
+
+  <div class="qa-panel">
+    <div class="qa-suggestions" aria-labelledby="qa-suggestions-label">
+      <h3 id="qa-suggestions-label">{copy.suggestions}</h3>
+      <div class="qa-chip-list">
+        {
+          prospectiveQa.slice(0, 6).map((item) => (
+            <button class="qa-chip" type="button" data-question={item.suggested[lang]}>
+              {item.suggested[lang]}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <form class="qa-form" data-qa-form>
+      <label for={`qa-question-${lang}`}>{copy.label}</label>
+      <div class="qa-input-row">
+        <input
+          id={`qa-question-${lang}`}
+          name="question"
+          type="text"
+          placeholder={copy.placeholder}
+          autocomplete="off"
+          data-qa-input
+        />
+        <button class="button qa-submit" type="submit">{copy.button}</button>
+      </div>
+    </form>
+
+    <div class="qa-result" data-qa-result aria-live="polite" hidden>
+      <p class="qa-result-label">{copy.answer}</p>
+      <p data-qa-answer></p>
+      <details data-qa-source-wrap hidden>
+        <summary>{copy.source}</summary>
+        <p data-qa-source></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { answerQuestion } from "../utils/qaMatcher.mjs";
+
+  document.querySelectorAll("[data-qa-root]").forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+
+    const form = root.querySelector("[data-qa-form]");
+    const input = root.querySelector("[data-qa-input]");
+    const result = root.querySelector("[data-qa-result]");
+    const answer = root.querySelector("[data-qa-answer]");
+    const sourceWrap = root.querySelector("[data-qa-source-wrap]");
+    const source = root.querySelector("[data-qa-source]");
+
+    if (
+      !(form instanceof HTMLFormElement) ||
+      !(input instanceof HTMLInputElement) ||
+      !(result instanceof HTMLElement) ||
+      !(answer instanceof HTMLElement) ||
+      !(sourceWrap instanceof HTMLElement) ||
+      !(source instanceof HTMLElement)
+    ) {
+      return;
+    }
+
+    const renderAnswer = () => {
+      const match = answerQuestion(input.value);
+      answer.replaceChildren();
+
+      if ("answer" in match) {
+        answer.textContent = match.answer;
+        source.textContent = match.source;
+        sourceWrap.hidden = false;
+      } else if ("message" in match) {
+        answer.append(document.createTextNode(match.message));
+        const link = document.createElement("a");
+        link.href = `mailto:${encodeURIComponent(match.email)}`;
+        link.textContent = match.email;
+        answer.append(link);
+        sourceWrap.hidden = true;
+      }
+
+      result.hidden = false;
+    };
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      renderAnswer();
+    });
+
+    root.querySelectorAll("[data-question]").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!(button instanceof HTMLButtonElement)) return;
+        input.value = button.dataset.question ?? "";
+        renderAnswer();
+        result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
+  });
+</script>
