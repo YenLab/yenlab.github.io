@@ -141,6 +141,118 @@ a {
   margin-inline: auto;
 }
 
+.qa-section {
+  width: min(var(--max-width), calc(100vw - 40px));
+  margin: 0 auto 58px;
+  padding-top: 38px;
+  border-top: 1px solid var(--line);
+}
+
+.qa-heading {
+  max-width: 760px;
+}
+
+.qa-panel {
+  display: grid;
+  gap: 26px;
+  margin-top: 24px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: 2px;
+  background: var(--paper);
+}
+
+.qa-panel h3,
+.qa-form label,
+.qa-result-label {
+  display: block;
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.qa-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.qa-chip {
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--page-bg);
+  color: var(--accent-dark);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  cursor: pointer;
+}
+
+.qa-chip:hover,
+.qa-chip:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.qa-input-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.qa-input-row input {
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  color: var(--ink);
+  font: inherit;
+}
+
+.qa-input-row input:focus {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent-soft);
+  outline-offset: 1px;
+}
+
+.qa-submit {
+  font: inherit;
+  cursor: pointer;
+}
+
+.qa-result {
+  padding: 20px;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+}
+
+.qa-result > p {
+  margin: 0;
+}
+
+.qa-result > p + p {
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+.qa-result details {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.qa-result summary {
+  cursor: pointer;
+}
+
+.qa-result details p {
+  margin: 7px 0 0;
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -428,6 +540,7 @@ h2 {
   .metrics,
   .content-band,
   .section-grid,
+  .qa-section,
   .site-footer {
     width: min(100% - 28px, 1040px);
   }
@@ -447,5 +560,17 @@ h2 {
 
   .info-panel:has(.publication-list) {
     grid-column: auto;
+  }
+
+  .qa-panel {
+    padding: 20px;
+  }
+
+  .qa-input-row {
+    grid-template-columns: 1fr;
+  }
+
+  .qa-submit {
+    justify-content: center;
   }
 }

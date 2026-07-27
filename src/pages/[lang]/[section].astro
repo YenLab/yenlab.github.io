@@ -1,5 +1,6 @@
 ---
 import Layout from "../../components/Layout.astro";
+import ProspectiveQa from "../../components/ProspectiveQa.astro";
 import { pages, sectionPaths, type Locale, type PageKey } from "../../content/site";
 
 export function getStaticPaths() {
@@ -46,4 +47,5 @@ const page = pages[section][lang];
       ))
     }
   </section>
+  {section === "join" && <ProspectiveQa lang={lang} />}
 </Layout>
